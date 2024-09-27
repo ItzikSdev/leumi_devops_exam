@@ -58,12 +58,8 @@ pipeline {
 
     post {
         always {
-            def containers = sh(script: 'docker ps -aq --filter "ancestor=itziksdev/python-flask"', returnStdout: true).trim()
-            if (containers) {
-                sh "docker rm -f ${containers}"
-            } else {
-                echo 'No containers to remove.'
-            }
+            // Clean up any running containers after the build
+            sh 'docker rm -f $(docker ps -aq --filter "ancestor=itziksdev/python-flask")'
         }
 
         success {
