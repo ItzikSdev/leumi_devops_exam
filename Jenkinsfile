@@ -17,7 +17,6 @@ pipeline {
                         mv docker/docker $HOME/bin/docker
                         rm -r docker docker-17.04.0-ce.tgz
                         export PATH=$HOME/bin:$PATH
-                        systemctl start docker 
                         docker --version
                     '''
                 }
@@ -60,7 +59,7 @@ pipeline {
     post {
         always {
             // Clean up any running containers after the build
-            sh 'docker rm -f $(docker ps -aq --filter "ancestor=itziksdev/python-flask")'
+           echo "hii"
         }
 
         success {
