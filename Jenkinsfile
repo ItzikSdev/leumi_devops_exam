@@ -1,6 +1,6 @@
 pipeline {
-    agent {
-        dockerfile true
+    agent { 
+        dockerfile true 
         docker { image 'node:20.17.0-alpine3.20' }
     }
     stages {
