@@ -1,14 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:20.17.0-alpine3.20' }
+    }
 
     environment {
         DOCKER_PATH = "/var/jenkins_home/bin"
         PATH = "${DOCKER_PATH}:${env.PATH}"
     }
 
-    agent {
-        docker { image 'node:20.17.0-alpine3.20' }
-    }
 }
 //     stages {
 //         stage('Install Docker') {
