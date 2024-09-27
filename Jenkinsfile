@@ -58,12 +58,8 @@ pipeline {
     }
 
     post {
-        success {
-            echo 'Flask app built and running successfully!'
-        }
-
-        failure {
-            echo 'Build failed. Please check the logs.'
+        always {
+            echo 'Pipeline finished.'
         }
     }
 }
