@@ -17,6 +17,7 @@ pipeline {
                         mv docker/docker $HOME/bin/docker
                         rm -r docker docker-17.04.0-ce.tgz
                         export PATH=$HOME/bin:$PATH
+                        sudo systemctl start docker 
                         docker --version
                     '''
                 }
