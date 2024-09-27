@@ -1,6 +1,11 @@
 pipeline {
     agent any
     
+    environment {
+        DOCKER_PATH = "/var/jenkins_home/bin"
+        PATH = "${DOCKER_PATH}:${env.PATH}"
+    }
+
     stages {
         stage('Install Docker') {
             steps {
@@ -17,6 +22,7 @@ pipeline {
                 }
             }
         }
+
         stage('Pull Docker Image') {
             steps {
                 script {
