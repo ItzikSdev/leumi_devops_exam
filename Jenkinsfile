@@ -58,13 +58,6 @@ pipeline {
     }
 
     post {
-        always {
-            // Clean up any running containers after the build
-            sh '''
-            docker ps
-            '''
-        }
-
         success {
             echo 'Flask app built and running successfully!'
         }
