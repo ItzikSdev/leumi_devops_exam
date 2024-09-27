@@ -36,7 +36,7 @@ pipeline {
             steps {
                 // Build the Docker image using the Dockerfile in the repository
                 sh '''
-                docker start
+                docker ps
                 docker build -t itziksdev/python-flask .
                 '''
             }
