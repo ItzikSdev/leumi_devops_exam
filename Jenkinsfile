@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         DOCKER_PATH = "/var/jenkins_home/bin"
         PATH = "${DOCKER_PATH}:${env.PATH}"
@@ -35,14 +35,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Build the Docker image using the Dockerfile in the repository
-                sh 'docker build -t ItzikSdev/python-flask .'
+                sh 'docker build -t itziksdev/python-flask .'
             }
         }
 
         stage('Run Docker Container') {
             steps {
                 // Run the Docker container
-                sh 'docker run -d -p 443:443 ItzikSdev/python-flask'
+                sh 'docker run -d -p 443:443 itziksdev/python-flask'
             }
         }
 
@@ -59,7 +59,7 @@ pipeline {
     post {
         always {
             // Clean up any running containers after the build
-            sh 'docker rm -f $(docker ps -aq --filter "ancestor=ItzikSdev/python-flask")'
+            sh 'docker rm -f $(docker ps -aq --filter "ancestor=itziksdev/python-flask")'
         }
 
         success {
