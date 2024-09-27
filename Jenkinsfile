@@ -61,8 +61,7 @@ pipeline {
         always {
             // Clean up any running containers after the build
             sh '''
-            service docker start
-            docker rm -f $(docker ps -aq --filter "ancestor=itziksdev/python-flask")
+            docker ps
             '''
         }
 
