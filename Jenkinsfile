@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'if [ ! -x "$(command -v docker)" ]; then echo "Docker not found. Exiting."; exit 1; fi'
             }
         }
     }
