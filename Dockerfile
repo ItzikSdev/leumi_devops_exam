@@ -1,3 +1,5 @@
-FROM node:20.17.0-alpine3.20
+FROM ubutnu
 
-RUN apk add -U subversion
+RUN /bin/bash -c 'echo This'
+ENV myCustomEnvVar="This is a sample." \ 
+    otherEnvVar="This is also a sample."
