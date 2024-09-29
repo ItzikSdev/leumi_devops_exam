@@ -3,7 +3,7 @@ pipeline {
         docker { image 'node:16-alpine' }
      }
     environment {
-        DOCKER_PATH = "/var/jenkins_home/bin"
+        DOCKER_PATH = "/usr/local/bin/docker"
         PATH = "${DOCKER_PATH}:${env.PATH}"
     }
     stages {
