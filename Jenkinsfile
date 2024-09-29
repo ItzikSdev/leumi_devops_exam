@@ -1,12 +1,10 @@
 pipeline {
-   agent {
-        docker { image 'python:3.9.20' }
-    }
-
-     stages {
+    agent { dockerfile true }
+    stages {
         stage('Test') {
             steps {
-                sh 'python3 --version'
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
     }
