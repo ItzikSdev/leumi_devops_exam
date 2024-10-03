@@ -39,10 +39,10 @@ spec:
       steps
       {
         sh "podman login docker.io --username ${dockerhub_user} --password itzik4580"
-        sh "podman buildx build --no-cache --platform linux/amd64 -f Dockerfile -t ${image_repository}:${env.BUILD_NUMBER} ."
+        sh "podman buildx build --no-cache --platform linux/amd64 -f Dockerfile -t ${image_repository}:latest ."
       }
     }
-    stage('Push') { steps { sh "podman push ${image_repository}:${env.BUILD_NUMBER}" } }
+    stage('Push') { steps { sh "podman push ${image_repository}:latest" } }
     stage('Deploy')
     {
       steps
