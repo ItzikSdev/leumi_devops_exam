@@ -39,6 +39,7 @@ spec:
       steps
       {
         sh "podman login docker.io --username ${dockerhub_user} --password itzik4580"
+        sh 'ls -la'
         sh "podman buildx build --no-cache --platform linux/amd64 -f Dockerfile -t ${image_repository}:latest ."
       }
     }
