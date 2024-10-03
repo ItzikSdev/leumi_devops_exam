@@ -1,5 +1,5 @@
-def service_name = 'python-flask'
-def dockerhub_user = "itziksavaia/my-flask-app"
+def service_name = 'my-flask-app'
+def dockerhub_user = "itziksavaia"
 def image_repository = "${dockerhub_user}/${service_name}"
 
 pipeline {
