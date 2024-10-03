@@ -38,7 +38,7 @@ spec:
     {
       steps
       {
-        sh "podman login docker.io --username ${dockerhub_user} --password your_dockerhub_password"
+        sh "podman login docker.io --username ${dockerhub_user} --password itzik4580"
         sh "podman buildx build --no-cache --platform linux/amd64 -f Dockerfile -t ${image_repository}:${env.BUILD_NUMBER} ."
       }
     }
